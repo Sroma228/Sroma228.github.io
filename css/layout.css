@@ -1,9 +1,8 @@
-@charset "UTF-8";
 /*----------------------------------------------------------------------
 
 	MASTER STYLESHEET
 
-	Project:        Metronic "Acidus" Frontend Freebie - Responsive HTML Template Based On Twitter Bootstrap 3.3.4
+	Project:        Metronic "Aitonepage" Frontend Freebie - Responsive HTML Template Based On Twitter Bootstrap 3.3.4
 	Version:        1.0
 	Author:         KeenThemes
 	Primary use:    Corporate, Business Themes.
@@ -169,27 +168,48 @@ h4 {
 }
 
 /*------------------------------------------------------------------
-  	[Blockquote]
+  	[Accordion]
 ------------------------------------------------------------------*/
-.blockquote {
-  position: relative;
-  font-size: 17px;
-  font-weight: 400;
-  font-family: Hind, sans-serif;
-  color: #a6a7aa;
-  line-height: 1.4;
-  border-left: none;
-  margin-left: 20px;
+.accordion .panel-default {
+  border: none;
 }
 
-.blockquote:before {
-  position: absolute;
-  top: 0;
-  left: -20px;
-  font-size: 60px;
-  display: inline-block;
-  color: #17bed2;
-  content: '“';
+.accordion .panel-heading {
+  border-radius: 0;
+}
+
+.accordion .panel-default > .panel-heading {
+  color: #515769;
+  background: #fff;
+  border: none;
+  padding: 0;
+}
+
+.accordion .panel-title {
+  font-size: 22px;
+}
+
+.accordion .panel-title-child {
+  display: block;
+  padding: 30px;
+}
+
+.accordion .panel-group .panel + .panel {
+  border-radius: 0;
+  margin-top: 10px;
+}
+
+.accordion .panel-default > .panel-heading + .panel-collapse > .panel-body {
+  font-size: 16px;
+  border-top: none;
+  padding: 0 30px 30px 30px;
+  margin-top: -1px;
+}
+
+.accordion [aria-expanded="true"],
+.accordion .collapse.in {
+  color: #fff;
+  background: #17bed2;
 }
 
 /*------------------------------------------------------------------
@@ -240,15 +260,9 @@ fieldset[disabled] .btn-theme {
   pointer-events: none;
 }
 
-.btn-icon {
-  position: relative;
-  top: 1px;
-  margin-right: 10px;
-}
-
 .btn-white-bg {
-  color: #515769;
-  background: #fff;
+  color: #fff;
+  background: #515769;
   border-color: transparent;
   border-width: 0;
 }
@@ -289,12 +303,6 @@ fieldset[disabled] .btn-theme {
   font-size: 13px;
   font-weight: 600;
   padding: 15px 40px;
-}
-
-.btn-theme-md {
-  font-size: 15px;
-  font-weight: 600;
-  padding: 20px 30px;
 }
 
 /*------------------------------------------------------------------
@@ -348,82 +356,6 @@ fieldset[disabled] .btn-theme {
   background: #17bed2;
   content: " ";
   margin-right: 10px;
-}
-
-/*------------------------------------------------------------------
-  	[Promo Banner]
-------------------------------------------------------------------*/
-.promo-banner {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  background: url(../img/1920x1080/02.jpg) no-repeat;
-  background-size: cover;
-  background-position: center center;
-  background-attachment: fixed;
-  min-height: 100%;
-}
-
-.promo-banner:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: rgba(81, 87, 105, 0.4);
-  content: " ";
-}
-
-.promo-banner .promo-banner-title {
-  font-size: 50px;
-  color: #fff;
-}
-
-.promo-banner .promo-banner-text {
-  font-size: 20px;
-  color: #fff;
-  opacity: .8;
-}
-
-/*------------------------------------------------------------------
-  	[Promo Block]
-------------------------------------------------------------------*/
-.promo-block {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  background: url(../img/1920x1080/01.jpg) no-repeat;
-  background-size: cover;
-  background-position: center center;
-  padding: 250px 0 200px;
-}
-
-.promo-block:before {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background: rgba(81, 87, 105, 0.4);
-  content: " ";
-}
-
-.promo-block .promo-block-title {
-  font-size: 70px;
-  color: #fff;
-}
-
-@media (max-width: 480px) {
-  .promo-block .promo-block-title {
-    font-size: 50px;
-  }
-}
-
-.promo-block .promo-block-text {
-  font-size: 25px;
-  color: #fff;
 }
 
 /*------------------------------------------------------------------
@@ -616,7 +548,7 @@ fieldset[disabled] .btn-theme {
 }
 
 /*------------------------------------------------------------------
-  	[Header]
+    [Header]
 ------------------------------------------------------------------*/
 /* Fixed Top */
 .navbar-fixed-top .navbar-collapse {
@@ -761,7 +693,7 @@ fieldset[disabled] .btn-theme {
   padding-right: 0;
 }
 
-.header .nav-item.active .nav-item-hover:after {
+.header .nav-item .nav-item-hover.active:after {
   opacity: 1;
   transition-duration: 400ms;
   transition-property: all;
@@ -791,7 +723,7 @@ fieldset[disabled] .btn-theme {
 }
 
 .header .nav-item-child:hover, .header .nav-item-child:focus {
-  background: inherit;
+  background: transparent;
 }
 
 .header .nav-item-hover {
@@ -1053,15 +985,45 @@ fieldset[disabled] .btn-theme {
   color: #515769;
 }
 
-/*----------------------------------
-  Google Map
-------------------------------------*/
-.gmap .gmap-address {
-  border-bottom: 1px solid #edf0f2;
-  text-align: center;
-  background: #fff;
-  padding: 30px;
-  margin-bottom: 0;
+/*------------------------------------------------------------------
+    [Full Screen Carousel]
+------------------------------------------------------------------*/
+.full-screen {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/*------------------------------------------------------------------
+    [Carousel]
+------------------------------------------------------------------*/
+.carousel-indicators {
+  left: auto;
+  width: auto;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.carousel-centered {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate3d(0, -50%, 0);
+  -moz-transform: translate3d(0, -50%, 0);
+  transform: translate3d(0, -50%, 0);
+}
+
+.carousel-title {
+  font-size: 80px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .carousel-title {
+    font-size: 60px;
+  }
 }
 
 /*------------------------------------------------------------------
@@ -1158,64 +1120,14 @@ fieldset[disabled] .btn-theme {
 /*------------------------------------------------------------------
     [Row]
 ------------------------------------------------------------------*/
-.row-space-2 {
-  margin-right: -2px;
-  margin-left: -2px;
+.row-space-1 {
+  margin-right: -1px;
+  margin-left: -1px;
 }
 
-.row-space-2 > [class*="col-"] {
-  padding-left: 2px;
-  padding-right: 2px;
-}
-
-/*--------------------------------------------------
-    [Container Full Width]
-----------------------------------------------------*/
-.container-full-width {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.container-full-width:before, .container-full-width:after {
-  content: " ";
-  display: table;
-}
-
-.container-full-width:after {
-  clear: both;
-}
-
-/*--------------------------------------------------
-    [Container Small]
-----------------------------------------------------*/
-.container-sm {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-.container-sm:before, .container-sm:after {
-  content: " ";
-  display: table;
-}
-
-.container-sm:after {
-  clear: both;
-}
-
-/* Media Queries below 768px */
-@media (min-width: 768px) {
-  .container-sm {
-    width: 750px;
-  }
-}
-
-/* Media Queries below 1200px */
-@media (min-width: 1200px) {
-  .container-sm {
-    width: 970px;
-  }
+.row-space-1 > [class*="col-"] {
+  padding-left: 1px;
+  padding-right: 1px;
 }
 
 /*------------------------------------------------------------------
@@ -1345,6 +1257,87 @@ fieldset[disabled] .btn-theme {
   margin-top: 60px !important;
 }
 
+@media (max-width: 992px) {
+  .md-margin-t-0 {
+    margin-top: 0 !important;
+  }
+  .md-margin-t-5 {
+    margin-top: 5px !important;
+  }
+  .md-margin-t-10 {
+    margin-top: 10px !important;
+  }
+  .md-margin-t-20 {
+    margin-top: 20px !important;
+  }
+  .md-margin-t-30 {
+    margin-top: 30px !important;
+  }
+  .md-margin-t-40 {
+    margin-top: 40px !important;
+  }
+  .md-margin-t-50 {
+    margin-top: 50px !important;
+  }
+  .md-margin-t-60 {
+    margin-top: 60px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .sm-margin-t-0 {
+    margin-top: 0 !important;
+  }
+  .sm-margin-t-5 {
+    margin-top: 5px !important;
+  }
+  .sm-margin-t-10 {
+    margin-top: 10px !important;
+  }
+  .sm-margin-t-20 {
+    margin-top: 20px !important;
+  }
+  .sm-margin-t-30 {
+    margin-top: 30px !important;
+  }
+  .sm-margin-t-40 {
+    margin-top: 40px !important;
+  }
+  .sm-margin-t-50 {
+    margin-top: 50px !important;
+  }
+  .sm-margin-t-60 {
+    margin-top: 60px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .xs-margin-t-0 {
+    margin-top: 0 !important;
+  }
+  .xs-margin-t-5 {
+    margin-top: 5px !important;
+  }
+  .xs-margin-t-10 {
+    margin-top: 10px !important;
+  }
+  .xs-margin-t-20 {
+    margin-top: 20px !important;
+  }
+  .xs-margin-t-30 {
+    margin-top: 30px !important;
+  }
+  .xs-margin-t-40 {
+    margin-top: 40px !important;
+  }
+  .xs-margin-t-50 {
+    margin-top: 50px !important;
+  }
+  .xs-margin-t-60 {
+    margin-top: 60px !important;
+  }
+}
+
 /*------------------------------------------------------------------
     [Bottom margin]
 ------------------------------------------------------------------*/
@@ -1352,8 +1345,8 @@ fieldset[disabled] .btn-theme {
   margin-bottom: 0 !important;
 }
 
-.margin-b-4 {
-  margin-bottom: 4px !important;
+.margin-b-2 {
+  margin-bottom: 2px !important;
 }
 
 .margin-b-5 {
@@ -1407,8 +1400,8 @@ fieldset[disabled] .btn-theme {
   .md-margin-b-0 {
     margin-bottom: 0 !important;
   }
-  .md-margin-b-4 {
-    margin-bottom: 4px !important;
+  .md-margin-b-2 {
+    margin-bottom: 2px !important;
   }
   .md-margin-b-5 {
     margin-bottom: 5px !important;
@@ -1452,8 +1445,8 @@ fieldset[disabled] .btn-theme {
   .sm-margin-b-0 {
     margin-bottom: 0 !important;
   }
-  .sm-margin-b-4 {
-    margin-bottom: 4px !important;
+  .sm-margin-b-2 {
+    margin-bottom: 2px !important;
   }
   .sm-margin-b-5 {
     margin-bottom: 5px !important;
@@ -1497,8 +1490,8 @@ fieldset[disabled] .btn-theme {
   .xs-margin-b-0 {
     margin-bottom: 0 !important;
   }
-  .xs-margin-b-4 {
-    margin-bottom: 4px !important;
+  .xs-margin-b-2 {
+    margin-bottom: 2px !important;
   }
   .xs-margin-b-5 {
     margin-bottom: 5px !important;
@@ -1548,12 +1541,4 @@ fieldset[disabled] .btn-theme {
 
 .height-300 {
   height: 300px !important;
-}
-
-.height-400 {
-  height: 400px !important;
-}
-
-.height-500 {
-  height: 500px !important;
 }
